@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="22f78593-0812-432f-9a91-df78f6603e0d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49982/Evidencija.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Evidencija.xsd" MetadataType="Schema" ID="58315747-32d3-4a9c-aacd-e993eef14db6" SourceId="1" SourceUrl="http://localhost:49982/Evidencija.svc?xsd=xsd0" />
+    <MetadataFile FileName="Evidencija.wsdl" MetadataType="Wsdl" ID="a1e2af06-9362-4b5f-9e46-6fee4820cdec" SourceId="1" SourceUrl="http://localhost:49982/Evidencija.svc?wsdl" />
+    <MetadataFile FileName="Evidencija.disco" MetadataType="Disco" ID="682c6e48-7633-416a-aa65-1c9fdf8d069c" SourceId="1" SourceUrl="http://localhost:49982/Evidencija.svc?disco" />
+    <MetadataFile FileName="Evidencija1.xsd" MetadataType="Schema" ID="59cd54e8-f4e2-4a9f-8ce3-3e8bc4d499f2" SourceId="1" SourceUrl="http://localhost:49982/Evidencija.svc?xsd=xsd2" />
+    <MetadataFile FileName="Evidencija2.xsd" MetadataType="Schema" ID="bb83e080-95e2-45e7-8acb-3016f3d2d08b" SourceId="1" SourceUrl="http://localhost:49982/Evidencija.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

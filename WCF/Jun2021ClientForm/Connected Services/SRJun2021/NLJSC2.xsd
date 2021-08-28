@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Jun2021" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Jun2021" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Igra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Igraci" nillable="true" type="tns:ArrayOfIgrac" />
+      <xs:element minOccurs="0" name="Pobednik" nillable="true" type="tns:Igrac" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Igra" nillable="true" type="tns:Igra" />
+  <xs:complexType name="ArrayOfIgrac">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Igrac" nillable="true" type="tns:Igrac" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIgrac" nillable="true" type="tns:ArrayOfIgrac" />
+  <xs:complexType name="Igrac">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Callback" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Igra" nillable="true" type="tns:Igra" />
+      <xs:element minOccurs="0" name="Kocka" type="xs:short" />
+      <xs:element minOccurs="0" name="Nadimak" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pojeden" type="xs:short" />
+      <xs:element minOccurs="0" name="Pojeo" type="xs:short" />
+      <xs:element minOccurs="0" name="X" type="xs:short" />
+      <xs:element minOccurs="0" name="Y" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Igrac" nillable="true" type="tns:Igrac" />
+</xs:schema>

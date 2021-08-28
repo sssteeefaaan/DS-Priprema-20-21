@@ -1,0 +1,10 @@
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\bin\Debug\Jun2019ClientForm.exe.config
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\bin\Debug\Jun2019ClientForm.exe
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\bin\Debug\Jun2019ClientForm.pdb
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\obj\Debug\Jun2019ClientForm.Form1.resources
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\obj\Debug\Jun2019ClientForm.Properties.Resources.resources
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\obj\Debug\Jun2019ClientForm.csproj.GenerateResource.cache
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\obj\Debug\Jun2019ClientForm.csproj.CoreCompileInputs.cache
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\obj\Debug\Jun2019ClientForm.exe
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\obj\Debug\Jun2019ClientForm.pdb
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2019ClientForm\obj\Debug\Jun2019ClientForm.csproj.AssemblyReference.cache
