@@ -17,6 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jun2021ClientForm", "Jun202
 		{F78221EF-F4C8-4FD2-AB11-D7207EC0BC9F} = {F78221EF-F4C8-4FD2-AB11-D7207EC0BC9F}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oktobar2020", "Oktobar2020\Oktobar2020.csproj", "{6BD6A0AD-A504-43DB-9A5F-73560EA44610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oktobar2020ClientForm", "Oktobar2020ClientForm\Oktobar2020ClientForm.csproj", "{5204D6A3-315A-4D41-8DB4-92B0C4BB8503}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6BD6A0AD-A504-43DB-9A5F-73560EA44610} = {6BD6A0AD-A504-43DB-9A5F-73560EA44610}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +46,14 @@ Global
 		{68F92F3B-F0E0-4168-813C-F59BA546A14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68F92F3B-F0E0-4168-813C-F59BA546A14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68F92F3B-F0E0-4168-813C-F59BA546A14D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD6A0AD-A504-43DB-9A5F-73560EA44610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD6A0AD-A504-43DB-9A5F-73560EA44610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD6A0AD-A504-43DB-9A5F-73560EA44610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD6A0AD-A504-43DB-9A5F-73560EA44610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5204D6A3-315A-4D41-8DB4-92B0C4BB8503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5204D6A3-315A-4D41-8DB4-92B0C4BB8503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5204D6A3-315A-4D41-8DB4-92B0C4BB8503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5204D6A3-315A-4D41-8DB4-92B0C4BB8503}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

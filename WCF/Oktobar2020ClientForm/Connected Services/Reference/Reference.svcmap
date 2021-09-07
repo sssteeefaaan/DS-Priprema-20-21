@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ed741e81-cbfe-4fff-8b79-444b00b217f8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50311/Calculator.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Calculator.wsdl" MetadataType="Wsdl" ID="6f1fd2a4-24b2-4bf0-80ee-5b47ad324d01" SourceId="1" SourceUrl="http://localhost:50311/Calculator.svc?wsdl" />
+    <MetadataFile FileName="Calculator.disco" MetadataType="Disco" ID="8a21eada-1632-479d-9372-b5ca23e8772e" SourceId="1" SourceUrl="http://localhost:50311/Calculator.svc?disco" />
+    <MetadataFile FileName="Calculator.xsd" MetadataType="Schema" ID="a6cb1167-8fcd-4845-be3f-34a45641610b" SourceId="1" SourceUrl="http://localhost:50311/Calculator.svc?xsd=xsd1" />
+    <MetadataFile FileName="Calculator1.xsd" MetadataType="Schema" ID="668176fd-7b92-48a2-b95b-09dcb70d3a25" SourceId="1" SourceUrl="http://localhost:50311/Calculator.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
