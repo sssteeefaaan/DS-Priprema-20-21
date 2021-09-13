@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Integral.cpp" />
+    <ClCompile Include="Integral2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
