@@ -1,0 +1,6 @@
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020\bin\Jun2020.dll.config
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020\bin\Jun2020.dll
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020\bin\Jun2020.pdb
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020\obj\Debug\Jun2020.csproj.CoreCompileInputs.cache
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020\obj\Debug\Jun2020.dll
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020\obj\Debug\Jun2020.pdb

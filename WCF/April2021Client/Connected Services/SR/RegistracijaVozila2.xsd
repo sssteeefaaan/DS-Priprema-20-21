@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/April2021" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/April2021" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1218/RegistracijaVozila.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Vlasnik">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JMBG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prezime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vozila" nillable="true" type="tns:ArrayOfVozilo" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Vlasnik" nillable="true" type="tns:Vlasnik" />
+  <xs:complexType name="ArrayOfVozilo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vozilo" nillable="true" type="tns:Vozilo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVozilo" nillable="true" type="tns:ArrayOfVozilo" />
+  <xs:complexType name="Vozilo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Boja" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Marka" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vlasnik" nillable="true" type="tns:Vlasnik" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Vozilo" nillable="true" type="tns:Vozilo" />
+  <xs:complexType name="ArrayOfVlasnik">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vlasnik" nillable="true" type="tns:Vlasnik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVlasnik" nillable="true" type="tns:ArrayOfVlasnik" />
+</xs:schema>

@@ -26,10 +26,10 @@
 //	local_a = (int*)malloc(sizeof(int) * l);
 //	local_b = (int*)malloc(sizeof(int) * l);
 //
-//	for (int i = 0; i < l; i++) {
-//		MPI_Scatter(&a[size * i], 1, MPI_INT, &local_a[i], 1, MPI_INT, master, MPI_COMM_WORLD);
-//		MPI_Scatter(&b[size * i], 1, MPI_INT, &local_b[i], 1, MPI_INT, master, MPI_COMM_WORLD);
-//	}
+	//for (int i = 0; i < l; i++) {
+	//	MPI_Scatter(&a[size * i], 1, MPI_INT, &local_a[i], 1, MPI_INT, master, MPI_COMM_WORLD);
+	//	MPI_Scatter(&b[size * i], 1, MPI_INT, &local_b[i], 1, MPI_INT, master, MPI_COMM_WORLD);
+	//}
 //
 //
 //	printf("Proces [%d]\n", rank);

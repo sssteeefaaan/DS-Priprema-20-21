@@ -1,1 +1,5 @@
-﻿
+﻿  a.cpp
+  b.cpp
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\Jun2020\b.cpp(10,13): warning C4101: 'stat': unreferenced local variable
+  Generating Code...
+  Jun2020.vcxproj -> C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\Debug\Jun2020.exe

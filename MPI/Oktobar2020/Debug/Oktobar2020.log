@@ -1,1 +1,5 @@
-﻿
+﻿  a.cpp
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\Oktobar2020\a.cpp(21,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  b.cpp
+  Generating Code...
+  Oktobar2020.vcxproj -> C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\Debug\Oktobar2020.exe

@@ -1,1 +1,5 @@
-﻿
+﻿  a.cpp
+  b.cpp
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\22.06.2020\b.cpp(111,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  22.06.2020.vcxproj -> C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\Debug\22.06.2020.exe
