@@ -43,6 +43,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jun2020Control", "Jun2020Co
 		{0396380C-F7EE-4C46-AD87-144255689B92} = {0396380C-F7EE-4C46-AD87-144255689B92}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oktobar2021", "Oktobar2021\Oktobar2021.csproj", "{F436C249-7D1C-4FB9-8342-211622404063}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oktobar2021Client", "Oktobar2021Client\Oktobar2021Client.csproj", "{DDB17156-0AAD-4CF0-86D2-5FB129C79328}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F436C249-7D1C-4FB9-8342-211622404063} = {F436C249-7D1C-4FB9-8342-211622404063}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +100,14 @@ Global
 		{A3254F57-91AC-4C60-9BE7-7578725E3ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3254F57-91AC-4C60-9BE7-7578725E3ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3254F57-91AC-4C60-9BE7-7578725E3ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F436C249-7D1C-4FB9-8342-211622404063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F436C249-7D1C-4FB9-8342-211622404063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F436C249-7D1C-4FB9-8342-211622404063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F436C249-7D1C-4FB9-8342-211622404063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDB17156-0AAD-4CF0-86D2-5FB129C79328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB17156-0AAD-4CF0-86D2-5FB129C79328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB17156-0AAD-4CF0-86D2-5FB129C79328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB17156-0AAD-4CF0-86D2-5FB129C79328}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
