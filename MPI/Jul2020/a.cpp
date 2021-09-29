@@ -2,9 +2,12 @@
 #include <mpi.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 int main(int argc, char** argv)
 {
+	srand(time(NULL));
+
 	int rank, size;
 	MPI_Status stat;
 
@@ -14,14 +17,14 @@ int main(int argc, char** argv)
 
 	int koraci = log2(size),
 		korak,
-		bar = 0,
-		value = rand();
+		mask = 0,
+		value = rand() % 51 + 50;
 
 	for (int i = 0; i < koraci; i++)
 	{
 		korak = 1 << i;
-		bar |= korak;
-		if ((rank & bar) == rank)
+		mask |= korak;
+		if ((rank & mask) == rank)
 		{
 			if ((rank ^ korak) > rank)
 				MPI_Send(&value, 1, MPI_INT, rank ^ korak, 0, MPI_COMM_WORLD);

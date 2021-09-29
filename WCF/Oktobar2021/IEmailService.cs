@@ -7,7 +7,6 @@ using System.Text;
 
 namespace Oktobar2021
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IEmailService" in both code and config file together.
     [ServiceContract(SessionMode = SessionMode.Required, CallbackContract =typeof(IEmailCallback))]
     public interface IEmailService
     {

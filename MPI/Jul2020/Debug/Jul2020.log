@@ -1,3 +1,6 @@
 ﻿  a.cpp
-C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\Jul2020\a.cpp(15,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\Jul2020\a.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\Jul2020\a.cpp(18,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  b.cpp
+  Generating Code...
   Jul2020.vcxproj -> C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\MPI\Debug\Jul2020.exe
