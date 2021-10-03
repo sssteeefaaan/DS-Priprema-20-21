@@ -32,7 +32,11 @@ namespace Oktobar2021
         {
             if (!Users.ContainsKey(nickname))
                 Users.Add(nickname, new List<IEmailCallback>());
-            Users[nickname].Add(OperationContext.Current.GetCallbackChannel<IEmailCallback>());
+
+            if(!Users[nickname].Contains(OperationContext.Current.GetCallbackChannel<IEmailCallback>()))
+                Users[nickname].Add(OperationContext.Current.GetCallbackChannel<IEmailCallback>());
+
+            Nickname = nickname;
         }
 
         public void SendEmail(Email email)

@@ -9,13 +9,17 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jms.JMSException;
+import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 import javax.jms.QueueConnection;
 import javax.jms.QueueConnectionFactory;
+import javax.jms.TopicConnectionFactory;
 import javax.jms.QueueReceiver;
 import javax.jms.QueueSender;
 import javax.jms.QueueSession;
@@ -28,106 +32,123 @@ import javax.naming.NamingException;
  * @author Stefan
  */
 public class MergeSortClient2 {
-
+    
     private long ID;
+    private HashMap<String, LinkedList<Integer>> sortingQueue;
+    
     private Queue splitQueue;
     private Queue joinQueue;
-
+    private Queue IDQueue;
+    
     private QueueConnection qc;
     private QueueSession qs;
-
+    
     private QueueSender splitSender;
-    private MessageProducer joinSender;
+    private QueueSender joinSender;
+    private QueueSender IDSender;
     
     private QueueReceiver splitReceiver;
-
+    private QueueReceiver IDReceiver;
+    private HashMap<String, MessageConsumer> sortingReceivers;
+    
     public MergeSortClient2(long ID) throws NamingException, JMSException {
         this.ID = ID;
-
+        this.sortingQueue = new HashMap<>();
+        this.sortingReceivers = new HashMap<>();
+        
         InitialContext ctx = new InitialContext();
-
+        
         QueueConnectionFactory qcf = (QueueConnectionFactory) ctx.lookup("qcf");
-        TopicConnectionFactory tcf = (TopicConnectionFactory) ctx.lookup("tcf");
-
-        this.splitQueue = (Queue) ctx.lookup("SplitQueue333");
-        this.joinQueue = (Queue) ctx.lookup("JoinQueue333");
-
+        
+        this.splitQueue = (Queue) ctx.lookup("SplitQueue03102021");
+        this.joinQueue = (Queue) ctx.lookup("JoinQueue03102021");
+        this.IDQueue = (Queue) ctx.lookup("IDQueue03102021");
+        
         ctx.close();
-
+        
         this.qc = qcf.createQueueConnection();
-        this.qs = this.qc.createQueueSession(false, Session.CLIENT_ACKNOWLEDGE);
-
+        this.qs = this.qc.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
+        
         this.splitSender = this.qs.createSender(this.splitQueue);
-        this.joinSender = this.qs.createProducer(this.joinQueue);
-
+        this.joinSender = this.qs.createSender(this.joinQueue);
+        this.IDSender = this.qs.createSender(this.IDQueue);
+        
+        this.IDReceiver = this.qs.createReceiver(this.IDQueue, "ID = " + Long.toString(this.ID));
         this.splitReceiver = this.qs.createReceiver(this.splitQueue);
         this.splitReceiver.setMessageListener(ml
                 -> {
             try {
-                ml.acknowledge();
                 ObjectMessage objMsg = (ObjectMessage) ml;
                 LinkedList<Integer> array = (LinkedList<Integer>) objMsg.getObject();
-                long id = ml.getLongProperty("ID");
-                String key = ml.getStringProperty("Key");
-
-                System.out.println("Primio [" + key + "] od: " + id);
+                long fromID = ml.getLongProperty("FromID");
+                String splitKey = ml.getStringProperty("SplitKey");
+                
+                System.out.println("Primio [" + splitKey + "] od: " + fromID);
                 for (int i : array) {
                     System.out.print(i + " ");
                 }
                 System.out.println();
-
+                
                 if (array.size() == 1) {
-                    this.joinSender.send(objMsg);
-                    System.out.println("Poslato ("+ array.getFirst() + ") sa key [" + key + "] i ID " + id);
+                    ObjectMessage newObjectMessage = this.qs.createObjectMessage(array);
+                    newObjectMessage.setLongProperty("FromID", this.ID);
+                    newObjectMessage.setLongProperty("ToID", fromID);
+                    newObjectMessage.setStringProperty("JoinKey", splitKey);
+                    
+                    this.joinSender.send(newObjectMessage);
+                    System.out.println("Poslato (" + array.getFirst() + ") sa key [" + splitKey + "] i ID " + fromID);
                     
                 } else {
                     int half = array.size() / 2;
                     LinkedList<Integer> left = new LinkedList<>(array.subList(0, half)),
                             right = new LinkedList<>(array.subList(half, array.size()));
-                    String key1 = UUID.randomUUID().toString();
+                    String joinKey = this.getKey();
                     
-                    MessageConsumer recv = this.qs.createConsumer(this.joinQueue, "Key = '" + key1 + "' AND ID = " + Long.toString(this.ID), false);
+                    this.sortingReceivers.put(joinKey, this.qs.createConsumer(this.joinQueue, "JoinKey = '" + joinKey + "' AND ToID = " + Long.toString(this.ID), false));
+                    this.sortingReceivers.get(joinKey).setMessageListener(ml1
+                            -> {
+                        try {
+                            System.out.println("Join [" + joinKey + "] ID [" + this.ID + "]");
+                            
+                            LinkedList<Integer> array1 = (LinkedList<Integer>) ((ObjectMessage) ml1).getObject();
+                            
+                            if (this.sortingQueue.containsKey(joinKey)) {
+                                array1 = this.merge(array1, this.sortingQueue.get(joinKey));
+                                
+                                ObjectMessage newObjMessage = this.qs.createObjectMessage(array1);
+                                newObjMessage.setLongProperty("ToID", fromID);
+                                newObjMessage.setLongProperty("FromID", this.ID);
+                                newObjMessage.setStringProperty("JoinKey", splitKey);
+                                
+                                this.joinSender.send(newObjMessage);
+                                this.sortingReceivers.remove(joinKey);
+                            } else {
+                                this.sortingQueue.put(joinKey, array);                                
+                            }
+                        } catch (JMSException ex) {
+                            Logger.getLogger(MergeSortClient2.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    });
+                    this.qc.start();
                     
-                    ObjectMessage newObjMsg = this.qs.createObjectMessage();
+                    ObjectMessage newObjMsgLeft = this.qs.createObjectMessage(left);
+                    newObjMsgLeft.setLongProperty("FromID", this.ID);
+                    newObjMsgLeft.setStringProperty("SplitKey", splitKey);
+                    this.splitSender.send(newObjMsgLeft);
                     
-                    newObjMsg.setLongProperty("ID", this.ID);
-                    newObjMsg.setStringProperty("Key", key1);
-                    
-                    newObjMsg.setObject(left);
-                    this.splitSender.send(newObjMsg);
-                    
-                    newObjMsg.setObject(right);
-                    this.splitSender.send(newObjMsg);
-                    
-                    ObjectMessage msgRet = null;
-                    while(msgRet == null)
-                        msgRet = (ObjectMessage) recv.receive(100);
-                    msgRet.acknowledge();
-                    left = (LinkedList<Integer>) msgRet.getObject();
-                    
-                    System.out.println("Primio left [" + key1 + "] za: " + this.ID);
-
-                    msgRet = null;
-                    while(msgRet == null)
-                        msgRet = (ObjectMessage) recv.receive(100);
-                    msgRet.acknowledge();
-                    right = (LinkedList<Integer>) msgRet.getObject();
-                    
-                    System.out.println("Primio right [" + key1 + "] za: " + this.ID);
-                    
-                    objMsg.setObject(merge(left, right));
-                    this.joinSender.send(objMsg);
-                    
-                    System.out.println("Poslato merged sa key [" + key + "] i ID " + id);
+                    ObjectMessage newObjMsgRight = this.qs.createObjectMessage(right);
+                    newObjMsgRight.setLongProperty("FromID", this.ID);
+                    newObjMsgRight.setStringProperty("SplitKey", splitKey);
+                    this.splitSender.send(newObjMsgRight);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
-
+        
         this.qc.start();
     }
-
+    
     private LinkedList<Integer> merge(LinkedList<Integer> a, LinkedList<Integer> b) {
         LinkedList<Integer> ret = new LinkedList<>();
         int i = 0, j = 0;
@@ -140,35 +161,42 @@ public class MergeSortClient2 {
         while (j < b.size()) {
             ret.add(b.get(j++));
         }
-
+        
         return ret;
     }
-
+    
     public LinkedList<Integer> mergeSort(LinkedList<Integer> array) throws JMSException {
         ObjectMessage msg = this.qs.createObjectMessage();
-        String key = UUID.randomUUID().toString();
+        String key = this.getKey();
         msg.setObject(array);
-        msg.setLongProperty("ID", this.ID);
-        msg.setStringProperty("Key", key);
+        msg.setLongProperty("FromID", this.ID);
+        msg.setStringProperty("SplitKey", key);
         
-        MessageConsumer recv = this.qs.createConsumer(this.joinQueue, "Key = '" + key + "' AND ID = " + Long.toString(this.ID), false);
+        MessageConsumer recv = this.qs.createConsumer(this.joinQueue, "JoinKey = '" + key + "' AND ToID = " + Long.toString(this.ID), false);
         
         this.splitSender.send(msg);
         
         ObjectMessage msgRet = (ObjectMessage) recv.receive();
-        msgRet.acknowledge();
         return (LinkedList<Integer>) msgRet.getObject();
     }
-
+    private String getKey() throws JMSException
+    {
+        Message m = this.qs.createMessage();
+        m.setLongProperty("ID", this.ID);
+        
+        this.IDSender.send(m);
+        return this.IDReceiver.receive().getStringProperty("Key");
+    }
+    
     public static void main(String[] args) throws NamingException, JMSException {
         Scanner s = new Scanner(System.in);
-
+        
         System.out.print("Unesite svoj ID: ");
         MergeSortClient2 c = new MergeSortClient2(Integer.parseInt(s.nextLine().trim()));
-
+        
         LinkedList<Integer> lista = new LinkedList<>();
         String temp = "";
-
+        
         System.out.println("Unesite brojeve ili quit za kraj");
         while (true) {
             temp = s.nextLine().trim();
@@ -180,10 +208,11 @@ public class MergeSortClient2 {
         lista = c.mergeSort(lista);
         
         System.out.println("Sortirana lista:");
-        for(int i:lista)
+        for (int i : lista) {
             System.out.print(i + " ");
+        }
         System.out.println();
-
+        
         s.nextLine();
         System.exit(0);
     }
