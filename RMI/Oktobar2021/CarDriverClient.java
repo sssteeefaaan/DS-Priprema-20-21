@@ -6,7 +6,6 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
 public class CarDriverClient extends UnicastRemoteObject implements CarCallback {
-    private Car car;
     private CarManager manager;
 
     public CarDriverClient() throws MalformedURLException, RemoteException, NotBoundException {
@@ -17,15 +16,13 @@ public class CarDriverClient extends UnicastRemoteObject implements CarCallback 
     @Override
     public void notifyCar(String address) throws RemoteException {
         System.out.println("Klijent vas ceka na lokaciji: '" + address + "'");
-        this.car.address = address;
-        this.car.isFree = false;
     }
 
     public void register() throws RemoteException {
-        this.car = new Car(this);
-        this.car.id = this.manager.register(car);
+        Car c = new Car(this);
+        c.id = this.manager.register(c);
 
-        if (this.car.id != -1)
+        if (c.id != -1)
             System.out.println("Uspesno registrovanje!");
         else
             System.out.println("Neuspesno registrovanje!");

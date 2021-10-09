@@ -17,7 +17,6 @@ public class CarUserClient {
             System.out.println("Vozilo uspesno pozvano!");
         else
             System.out.println("Nespesno pozivanje vozila!");
-
     }
 
     public static void main(String[] args)
