@@ -121,7 +121,7 @@ public class CardGameManagerImpl extends UnicastRemoteObject implements CardGame
     }
 
     private void checkGame() throws RemoteException {
-        if (this.deck.size() > 0 || this.players.size() != this.skippedRound.size()) {
+        if (this.deck.size() > 0 && this.players.size() != this.skippedRound.size()) {
             if (this.players.size() == this.pickedACard.size() + this.skippedRound.size())
                 this.newRound();
 
