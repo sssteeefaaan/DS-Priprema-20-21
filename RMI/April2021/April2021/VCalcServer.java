@@ -1,3 +1,4 @@
+package April2021;
 import java.net.MalformedURLException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
@@ -7,39 +8,29 @@ import java.rmi.registry.LocateRegistry;
 import java.util.Scanner;
 
 public class VCalcServer {
-    private VCalcManager manager;
-
-    public VCalcServer() throws RemoteException, MalformedURLException, AlreadyBoundException
-    {
-        manager = new VCalcManagerImpl();
-
+    public VCalcServer() throws MalformedURLException, RemoteException, AlreadyBoundException {
         LocateRegistry.createRegistry(1099);
-        Naming.bind("rmi://127.0.0.1:1099/VCalcService", manager);
-
-        System.out.println("Servis je pokrenut na adresi: rmi://127.0.0.1:1099/VCalcService");
+        Naming.bind("rmi://127.0.0.1:1099/VCalcService", new VCalcManagerImpl());
     }
 
+    // Ovo ne treba
     public void close() throws RemoteException, MalformedURLException, NotBoundException
     {
         Naming.unbind("rmi://127.0.0.1:1099/VCalcService");
     }
 
-    public static void main(String[] args)
-    {
-        try{
+    public static void main(String[] args) {
+        try {
             VCalcServer server = new VCalcServer();
-            Scanner s = new Scanner(System.in);
-            
-            System.out.println("Unesite enter za kraj!");
-            s.nextLine();
 
+            System.out.println("Server je pokrenut....\nPritisnite Enter za kraj...");
+
+            Scanner s = new Scanner(System.in);
+            s.nextLine();
             s.close();
-            server.close();
             
-            System.exit(0);
-        }
-        catch(Exception e)
-        {
+            server.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

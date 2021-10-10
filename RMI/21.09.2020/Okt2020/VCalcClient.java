@@ -1,3 +1,5 @@
+package Okt2020;
+
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;

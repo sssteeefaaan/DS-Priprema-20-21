@@ -1,38 +1,21 @@
+package April2021;
+
 import java.io.Serializable;
-import java.rmi.RemoteException;
 import java.util.Vector;
 
 public class VCalcRequest implements Serializable {
-    private int cId;
-    private Vector<Double> a;
-    private Vector<Double> b;
-    private VCalcCallback cb;
+    public int cId;
+    public Vector<Double> a;
+    public Vector<Double> b;
+    public VCalcCallback cb;
 
     public VCalcRequest(int cId, Vector<Double> a, Vector<Double> b, VCalcCallback cb) {
+        super();
+        
         this.cId = cId;
         this.a = new Vector<Double>(a);
         this.b = new Vector<Double>(b);
-        this.setCb(cb);
-    }
-
-    public VCalcCallback getCb() {
-        return cb;
-    }
-
-    public void setCb(VCalcCallback cb) {
         this.cb = cb;
-    }
-
-    public Vector<Double> getB() {
-        return b;
-    }
-
-    public Vector<Double> getA() {
-        return a;
-    }
-
-    public int getCId() throws RemoteException {
-        return this.cId;
     }
 
     public Double operate() {

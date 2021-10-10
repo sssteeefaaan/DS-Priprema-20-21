@@ -1,18 +1,16 @@
+package April2021;
+
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Scanner;
 import java.util.Vector;
 
 public class VCalcClient extends UnicastRemoteObject implements VCalcCallback {
 
     private VCalcManager manager;
-
-    @Override
-    public void onDone(int cid, double result) throws RemoteException {
-        System.out.println("Kalkulacija sa ID-em " + cid + " je izvrsena. Rezultat iznosi: " + result);
-    }
 
     public VCalcClient() throws RemoteException, MalformedURLException, NotBoundException {
         manager = (VCalcManager) Naming.lookup("rmi://127.0.0.1:1099/VCalcService");
@@ -30,6 +28,11 @@ public class VCalcClient extends UnicastRemoteObject implements VCalcCallback {
             System.out.println("Uspesno izvrsena operacija!");
         else
             System.out.println("Neuspesno izvrsena operacija!");
+    }
+
+    @Override
+    public void onDone(int cid, double result) throws RemoteException {
+        System.out.println("Kalkulacija sa ID-em " + cid + " je izvrsena. Rezultat iznosi: " + result);
     }
 
     public static void main(String[] args) {
@@ -52,6 +55,14 @@ public class VCalcClient extends UnicastRemoteObject implements VCalcCallback {
                 }, client));
 
             client.runNextVCalc();
+
+            System.out.println("Pritisnite enter za kraj...");
+
+            Scanner s = new Scanner(System.in);
+            s.nextLine();
+            s.close();
+
+            System.exit(0);
         } catch (Exception e) {
             e.printStackTrace();
 
