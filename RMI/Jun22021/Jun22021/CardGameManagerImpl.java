@@ -149,6 +149,8 @@ public class CardGameManagerImpl extends UnicastRemoteObject implements CardGame
                 winners.clear();
                 winners.add(p);
             }
+            else
+                losers.add(p);
         }
 
         for (Player p : winners) {
