@@ -11,10 +11,11 @@ public class CardGameManagerImpl extends UnicastRemoteObject implements CardGame
     public ArrayList<Card> deck;
     public HashMap<Integer, Player> players;
 
+    public HashMap<Integer, Player> eliminated;
+
     // Svake runde se pravi novi HashMap
     public HashMap<Integer, Player> pickedACard;
     public HashMap<Integer, Player> skippedRound;
-    public HashMap<Integer, Player> eliminated;
 
     // Genrator ID-a
     public int idGen;
@@ -43,8 +44,9 @@ public class CardGameManagerImpl extends UnicastRemoteObject implements CardGame
         pReg.pickedCards.add(c);
         this.pickedACard.put(player.id, pReg);
 
-        // Los pristup, jer mu vraca kartu tek nakon stro proveri da li ima pobednika i
+        // Los pristup, jer mu vraca kartu tek nakon sto proveri da li ima pobednika i
         // proglasi pobednike....
+        // Card je bolje da se vrati kroz callback
         this.checkGame();
 
         return c;
@@ -64,7 +66,7 @@ public class CardGameManagerImpl extends UnicastRemoteObject implements CardGame
     public void startGame() throws RemoteException {
         this.deck.clear();
 
-        for (int i = 0; i < 14; i++)
+        for (int i = 1; i < 14; i++)
             for (int j = 0; j < 2; j++)
                 for (int k = 0; k < 2; k++)
                     this.deck.add(new Card((j == 0 ? "Black" : "Red"),

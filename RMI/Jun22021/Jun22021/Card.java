@@ -12,6 +12,7 @@ public class Card implements Serializable {
         super();
 
         this.color = color;
+        this.suit = suit;
         this.value = value;
     }
 }
