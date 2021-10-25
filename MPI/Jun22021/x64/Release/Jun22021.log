@@ -1,0 +1,8 @@
+﻿  b.cpp
+C:\Users\stefa\Desktop\DS_Priprema2021\MPI\Jun22021\b.cpp(12,13): warning C4101: 'stat': unreferenced local variable
+  Generating code
+  1 of 4 functions (25.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Jun22021.vcxproj -> C:\Users\stefa\Desktop\DS_Priprema2021\MPI\x64\Release\Jun22021.exe
