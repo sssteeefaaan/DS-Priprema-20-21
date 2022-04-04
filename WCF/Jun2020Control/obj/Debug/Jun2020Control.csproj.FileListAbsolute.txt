@@ -1,6 +1,0 @@
-C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020Control\bin\Debug\Jun2020Control.exe.config
-C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020Control\bin\Debug\Jun2020Control.exe
-C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020Control\bin\Debug\Jun2020Control.pdb
-C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020Control\obj\Debug\Jun2020Control.csproj.CoreCompileInputs.cache
-C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020Control\obj\Debug\Jun2020Control.exe
-C:\Users\stefa\Documents\Faks\III godina\VI semestar\Distribuirani Sistemi\Priprema 2021\WCF\Jun2020Control\obj\Debug\Jun2020Control.pdb
