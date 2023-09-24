@@ -89,15 +89,9 @@ public class Discipline
 
         Groups.ForEach(g => g.Clear());
 
-        for(int i = allStudents.Count - 1; i >= 0;)
-        {
-            for (int j = Groups.Count - 1; j >= 0; j--)
-            {
-                Groups[j].Prepend(allStudents[i]);
-                allStudents.RemoveAt(i--);
-            }
-        }
-        
+        for (int i = 0; i < allStudents.Count;)
+            for (int j = 0; j < Groups.Count && i < allStudents.Count; j++)
+                Groups[j].Add(allStudents[i++]);
     }
 }
 
