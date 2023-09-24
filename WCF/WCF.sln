@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jun2019", "Jun2019\Jun2019.csproj", "{7198BBE0-829F-4E48-A8B8-7CD4F96F9D4A}"
 EndProject
@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oktobar2021Client", "Oktoba
 	ProjectSection(ProjectDependencies) = postProject
 		{F436C249-7D1C-4FB9-8342-211622404063} = {F436C249-7D1C-4FB9-8342-211622404063}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oktobar2023", "Oktobar2023\Oktobar2023.csproj", "{342BFDA0-3D4F-4D98-A52E-8B609877E2F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +110,10 @@ Global
 		{DDB17156-0AAD-4CF0-86D2-5FB129C79328}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDB17156-0AAD-4CF0-86D2-5FB129C79328}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDB17156-0AAD-4CF0-86D2-5FB129C79328}.Release|Any CPU.Build.0 = Release|Any CPU
+		{342BFDA0-3D4F-4D98-A52E-8B609877E2F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{342BFDA0-3D4F-4D98-A52E-8B609877E2F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{342BFDA0-3D4F-4D98-A52E-8B609877E2F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{342BFDA0-3D4F-4D98-A52E-8B609877E2F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
